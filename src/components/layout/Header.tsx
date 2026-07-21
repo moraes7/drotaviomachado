@@ -28,8 +28,8 @@ const navItems = [
     to: '/livros',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
-        <path d="M6 6h10M6 10h10M6 14h10" />
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
       </svg>
     ),
   },
@@ -91,7 +91,7 @@ export function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 w-full border-b border-dotted py-1 transition-all duration-[0.4s]"
+      className="sticky top-0 z-50 w-full border-b border-dotted py-1 transition-all duration-[0.5s]"
       style={{
         borderColor: 'rgba(224,224,224,0.4)',
         background: scrolled
@@ -111,12 +111,12 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <nav
-            className="hidden items-center gap-1 rounded-full border border-[#047857] p-1 md:flex"
+            className="hidden items-center gap-1 rounded-full border-[0.5px] border-[#cff2e5] p-1 md:flex"
             style={{
               background: 'rgba(5, 150, 105, 0.05)',
               backdropFilter: 'blur(12px)',
               WebkitBackdropFilter: 'blur(12px)',
-              boxShadow: '0 4px 15px rgba(5, 150, 105, 0.08)',
+              boxShadow: '0 4px 15px rgba(52, 211, 153, 0.1)',
             }}
           >
             {navItems.map((item) => {
@@ -126,23 +126,23 @@ export function Header() {
                   key={item.to}
                   to={item.to}
                   onClick={() => handleNavClick(item.to)}
-                  className={`group flex items-center no-underline rounded-full transition-all duration-[0.4s] text-[13px] font-bold leading-none h-9 ${
-                    active
-                      ? 'bg-[#047857] text-white gap-2 px-4'
-                      : 'text-[#475569] hover:bg-white/5 hover:text-[#0f172a] gap-0 px-2.5 hover:gap-2'
-                  }`}
-                  style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
+                   className={`flex items-center no-underline rounded-full transition-[opacity,max-width,color,background-color,box-shadow] duration-[0.5s] text-[13px] font-bold leading-none h-9 outline-none focus:outline-none ${
+                     active
+                       ? 'bg-[rgba(5,150,105,0.03)] text-[#171717] px-4 border-[0.5px] border-[rgba(224,224,224,0.3)] shadow-[0_1px_2px_rgba(0,0,0,0.05)]'
+                       : 'text-[#475569] hover:text-[#171717] px-2.5 hover:shadow-[0_1px_3px_rgba(0,0,0,0.08)]'
+                   }`}
+                   style={{ transitionTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)' }}
                 >
                   <span className="shrink-0 flex items-center justify-center w-[18px] h-[18px]">
                     {item.icon}
                   </span>
                   <span
-                    className={`whitespace-nowrap overflow-hidden transition-all duration-[0.4s] ${
+                    className={`whitespace-nowrap overflow-hidden transition-all duration-[0.5s] ${
                       active
-                        ? 'max-w-[100px] opacity-100'
-                        : 'max-w-0 opacity-0 group-hover:max-w-[100px] group-hover:opacity-100'
+                        ? 'max-w-[100px] opacity-100 ml-1.5'
+                        : 'max-w-0 opacity-0 ml-0 group-hover:max-w-[100px] group-hover:opacity-100 group-hover:ml-1.5'
                     }`}
-                    style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
+                    style={{ transitionTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)' }}
                   >
                     {item.label}
                   </span>
@@ -156,9 +156,9 @@ export function Header() {
               href="https://www.youtube.com/@simplificandoafisiologia"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center rounded-full p-1.5 text-[#475569] transition-all duration-[0.4s] hover:text-red-600 hover:scale-110"
+              className="flex items-center justify-center rounded-full p-1.5 text-[#475569] transition-all duration-[0.5s] hover:text-red-600 hover:scale-110 outline-none focus:outline-none"
               aria-label="YouTube"
-              style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
+              style={{ transitionTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)' }}
             >
               <svg className="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
@@ -171,14 +171,14 @@ export function Header() {
               <button
                 type="button"
                 onClick={() => setFooterModalOpen(true)}
-                className="rounded-full border border-[#cbd5e1] bg-transparent px-2.5 py-1 text-[11px] font-bold text-[#475569] transition-all duration-[0.4s] hover:border-[#059669] hover:text-[#059669]"
+                className="rounded-full border border-[#cbd5e1] bg-transparent px-2.5 py-1 text-[11px] font-bold text-[#475569] transition-all duration-[0.5s] hover:border-[#059669] hover:text-[#059669] outline-none focus:outline-none"
               >
                 CMS
               </button>
               <button
                 type="button"
                 onClick={logout}
-                className="rounded-full border border-[#cbd5e1] bg-transparent px-2.5 py-1 text-[11px] font-bold text-[#475569] transition-all duration-[0.4s] hover:border-red-400 hover:text-red-500"
+                className="rounded-full border border-[#cbd5e1] bg-transparent px-2.5 py-1 text-[11px] font-bold text-[#475569] transition-all duration-[0.5s] hover:border-red-400 hover:text-red-500 outline-none focus:outline-none"
               >
                 Sair
               </button>
@@ -187,7 +187,7 @@ export function Header() {
             <button
               type="button"
               onClick={() => setLoginModalOpen(true)}
-              className="hidden rounded-full border border-[#cbd5e1] bg-transparent px-2.5 py-1 text-[11px] font-bold text-[#475569] transition-all duration-[0.4s] hover:border-[#059669] hover:text-[#059669] md:block"
+              className="hidden rounded-full border border-[#cbd5e1] bg-transparent px-2.5 py-1 text-[11px] font-bold text-[#475569] transition-all duration-[0.5s] hover:border-[#059669] hover:text-[#059669] outline-none focus:outline-none md:block"
             >
               Admin
             </button>
@@ -196,7 +196,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="flex items-center justify-center rounded-full p-1.5 text-[#475569] transition-all duration-[0.4s] hover:bg-gray-100 md:hidden"
+            className="flex items-center justify-center rounded-full p-1.5 text-[#475569] transition-all duration-[0.5s] hover:bg-gray-100 outline-none focus:outline-none md:hidden"
             aria-label="Menu"
           >
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -220,7 +220,7 @@ export function Header() {
                   key={item.to}
                   to={item.to}
                   onClick={() => handleNavClick(item.to)}
-                  className={`flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-bold transition-all duration-[0.4s] no-underline ${
+                  className={`flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-bold transition-all duration-[0.5s] no-underline outline-none focus:outline-none ${
                     active
                       ? 'bg-[#047857] text-white'
                       : 'text-[#475569] hover:bg-gray-100 hover:text-[#0f172a]'
@@ -235,7 +235,7 @@ export function Header() {
               href="https://www.youtube.com/@simplificandoafisiologia"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-bold text-[#475569] transition-all duration-[0.4s] hover:bg-gray-100 no-underline"
+              className="flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-bold text-[#475569] transition-all duration-[0.5s] hover:bg-gray-100 no-underline outline-none focus:outline-none"
             >
               <svg className="h-4 w-4 text-red-500" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
